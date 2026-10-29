@@ -259,14 +259,14 @@ class GraphChart2:
         self.fntMorinus = ImageFont.truetype(common.common.symbols, self.symbolSize)
         self.fntSmallMorinus = ImageFont.truetype(common.common.symbols, self.smallsymbolSize)
         self.fntMorinusSigns = ImageFont.truetype(common.common.symbols, self.signSize)
-        self.fntText = ImageFont.truetype(common.common.abc, self.symbolSize/2)
+        self.fntText = ImageFont.truetype(common.common.abc, int(max(5, self.symbolSize/2)))
         self.fntAntisText = ImageFont.truetype(common.common.abc, self.symbolSize)
-        self.fntSmallText = ImageFont.truetype(common.common.abc, self.symbolSize/2)
-        self.fntRetr = ImageFont.truetype(common.common.symbols, self.symbolSize/2)
-        self.fntSmallText2 = ImageFont.truetype(common.common.abc, self.symbolSize/3)
-        self.fntSmallTextOuter = ImageFont.truetype(common.common.abc, self.symbolSize/4)
-        self.fntBigText = ImageFont.truetype(common.common.abc, self.symbolSize/4*3)
-        self.fntMorinus2 = ImageFont.truetype(common.common.symbols, self.symbolSize/4*3)
+        self.fntSmallText = ImageFont.truetype(common.common.abc, int(max(5, self.symbolSize/2)))
+        self.fntRetr = ImageFont.truetype(common.common.symbols, int(max(5, self.symbolSize/2)))
+        self.fntSmallText2 = ImageFont.truetype(common.common.abc, int(max(5, self.symbolSize/3)))
+        self.fntSmallTextOuter = ImageFont.truetype(common.common.abc, int(max(5, self.symbolSize/4)))
+        self.fntBigText = ImageFont.truetype(common.common.abc, int(max(5, self.symbolSize/4*3)))
+        self.fntMorinus2 = ImageFont.truetype(common.common.symbols, int(max(5, self.symbolSize/4*3)))
         self.deg_symbol = u'\u00b0'
 
         self.arsigndiff = (0, -1, -1, 2, -1, 3, 4, -1, -1, -1, 6)
@@ -617,7 +617,7 @@ class GraphChart2:
             y1 = int(cy+math.sin(math.pi+dif)*r1)
             x2 = int(cx+math.cos(math.pi+dif)*r2)
             y2 = int(cy+math.sin(math.pi+dif)*r2)
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def drawAscMC(self, ascmc, r1, r2, rArrow):
@@ -654,7 +654,7 @@ class GraphChart2:
             y1 = int(cy+math.sin(ang)*r1)
             x2 = int(cx+math.cos(ang)*r2comma)
             y2 = int(cy+math.sin(ang)*r2comma)
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
             if i == 0 or i == 2:
                 self.drawArrow(ang, r2, clr, rArrow)
@@ -756,7 +756,7 @@ class GraphChart2:
 
             mintxt = str(m)+"'"
             # wdeg, hdeg = self.draw.textsize(mintxt, self.fntSmallText2)
-            w, h = get_size(self.fntSmallText2, mintxt)
+            wdeg, hdeg = get_size(self.fntSmallText2, mintxt)
             x = cx+math.cos(math.pi+math.radians(asc-self.chart.houses.cusps[i]))*self.rPosHousesMin
             y = cy+math.sin(math.pi+math.radians(asc-self.chart.houses.cusps[i]))*self.rPosHousesMin
             xdeg = x-wdeg/2
@@ -860,7 +860,7 @@ class GraphChart2:
 
                 mintxt = str(m)+"'"
                 # wdeg, hdeg = self.draw.textsize(mintxt, self.fntSmallText2)
-                w, h = get_size(self.fntSmallText2, mintxt)
+                wdeg, hdeg = get_size(self.fntSmallText2, mintxt)
                 x = cx+math.cos(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-lon-pshift[i]))*self.rPosMin
                 y = cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-lon-pshift[i]))*self.rPosMin
                 xdeg = x-wdeg/2
@@ -878,7 +878,7 @@ class GraphChart2:
 #                           t = 'R'
 
                         # wdeg, hdeg = self.draw.textsize(t, rfnt)
-                        w, h = get_size(rfnt, t)
+                        wdeg, hdeg = get_size(rfnt, t)
                         x = cx+math.cos(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-chrt.planets.planets[i].data[planets.Planet.LONG]-pshift[i]))*rRetr
                         y = cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-chrt.planets.planets[i].data[planets.Planet.LONG]-pshift[i]))*rRetr
                         xdeg = x-wdeg/2
@@ -939,7 +939,7 @@ class GraphChart2:
             x2 = int(cx+math.cos(i)*r2)
             y2 = int(cy+math.sin(i)*r2)
 
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
             i -= deg
 
 
@@ -965,7 +965,7 @@ class GraphChart2:
                 x2 = int(cx+math.cos(math.pi+shift-math.radians(deg))*self.rDecans)
                 y2 = int(cy+math.sin(math.pi+shift-math.radians(deg))*self.rDecans)
 
-                self.bdc.DrawLine(x1, y1, x2, y2)
+                self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
             sign += signdeg
 
@@ -1016,7 +1016,7 @@ class GraphChart2:
             x2 = int(cx+math.cos(i)*self.rDecans)
             y2 = int(cy+math.sin(i)*self.rDecans)
 
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
             i -= deg
 
 
@@ -1074,7 +1074,7 @@ class GraphChart2:
         y1 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-lon))*r1)
         x2 = int(cx+math.cos(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-lon-pshift[planet]))*r2)
         y2 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-lon-pshift[planet]))*r2)
-        self.bdc.DrawLine(x1, y1, x2, y2)
+        self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def drawFixstars(self, showfss):
@@ -1132,7 +1132,7 @@ class GraphChart2:
             y1 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-self.chart.fixstars.data[showfss[i]][fixstars.FixStars.LON]))*self.r30)
             x2 = int(cx+math.cos(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-self.chart.fixstars.data[showfss[i]][fixstars.FixStars.LON]-self.fsshift[i]))*self.rOuterLine)
             y2 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-self.chart.fixstars.data[showfss[i]][fixstars.FixStars.LON]-self.fsshift[i]))*self.rOuterLine)
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def drawAntisLines(self, plnts, lof, ascmc, pshift, r1, r2):
@@ -1168,7 +1168,7 @@ class GraphChart2:
             y1 = cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-ayanoffs-lon))*r1
             x2 = cx+math.cos(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-ayanoffs-lon-pshift[i]))*r2
             y2 = cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-ayanoffs-lon-pshift[i]))*r2
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def drawAntis(self, chrt, plnts, lof, ascmc, pshift, r):

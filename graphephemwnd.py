@@ -108,13 +108,13 @@ class GraphEphemWnd(wx.Window):
         y1 = int(self.BORDER)
         x2 = int(x1)
         y2 = int(self.h-self.BORDER)
-        self.bdc.DrawLine(x1, y1, x2, y2)
+        self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
         x1 = int(self.BORDER)
         y1 = int(self.h-4*self.BORDER)
         x2 = int(self.w-self.BORDER)
         y2 = int(self.h-4*self.BORDER)
-        self.bdc.DrawLine(x1, y1, x2, y2)
+        self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
         pen = wx.Pen(tableclr, 1, wx.USER_DASH)
         pen.SetDashes([6, 3])
@@ -130,7 +130,7 @@ class GraphEphemWnd(wx.Window):
         for i in range(13):
             x1 += int(self.monthSize)
             x2 += int(self.monthSize)
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
         x1 = int(2*self.BORDER+self.signSymbolSize+self.spaceSize)
         y1 = int(self.h-4*self.BORDER)
@@ -139,7 +139,7 @@ class GraphEphemWnd(wx.Window):
         for i in range(chart.Chart.SIGN_NUM+1):
             y1 -= int(self.signSize)
             y2 -= int(self.signSize)
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
         plsnum = 7
         if self.options.transcendental[chart.Chart.TRANSURANUS]:
@@ -187,11 +187,11 @@ class GraphEphemWnd(wx.Window):
                         w = 1
                     pen = wx.Pen(plsclr, w)
                     self.bdc.SetPen(pen)
-                    self.bdc.DrawPoint(x, y)
+                    self.bdc.DrawPoint(int(x), int(y))
 
                     signtransition = ((prevy > self.h-4*self.BORDER-2*self.signSize and y < yOrig2+self.signSize) or (y > self.h-4*self.BORDER-2*self.signSize and prevy < yOrig2+self.signSize))
                     if i != 0 and not signtransition:
-                        self.bdc.DrawLine(prevx, prevy, x, y)
+                        self.bdc.DrawLine(int(prevx), int(prevy), int(x), int(y))
 
                     if i != 0 and signtransition:
                         if (prevy > self.h-4*self.BORDER-2*self.signSize and y < yOrig2+self.signSize):
@@ -249,9 +249,9 @@ class GraphEphemWnd(wx.Window):
                 pen = wx.Pen(plsclr, 1)
                 self.bdc.SetPen(pen)
                 if len(plstop) > 1:
-                    self.bdc.DrawLine(x, y1, x+bshifttop[pl], y2)
+                    self.bdc.DrawLine(int(x), int(y1), int(x+bshifttop[pl]), int(y2))
                 else:
-                    self.bdc.DrawLine(x, y1, x, y2)
+                    self.bdc.DrawLine(int(x), int(y1), int(x), int(y2))
 
 
         #bottom
@@ -270,7 +270,7 @@ class GraphEphemWnd(wx.Window):
                 if len(plsbottom) > 1:
                     self.bdc.DrawLine(int(x+bshiftbottom[pl]), y1, x, y2)
                 else:
-                    self.bdc.DrawLine(x, y1, x, y2)
+                    self.bdc.DrawLine(int(x), int(y1), int(x), int(y2))
 
         # Javier commented EndDrawing
         #self.bdc.EndDrawing()

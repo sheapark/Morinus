@@ -2,14 +2,10 @@
 
 
 a = Analysis(
-    ['morinus.py'],
+    ['morinus_mac.py'],
     pathex=[],
     binaries=[],
-    # Runtime data: the app chdir()s to the exe dir and uses relative
-    # paths (Res/, SWEP/Ephem/). Hors/ (user charts) and Opts/ (user
-    # config) are intentionally NOT bundled: Opts/ falls back to
-    # defaults and Hors/ contains personal data.
-    datas=[('Res', 'Res'), ('SWEP/Ephem', 'SWEP/Ephem')],
+    datas=[('Res', 'Res'), ('SWEP/Ephem', 'SWEP/Ephem'), ('Opts', 'Opts')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -25,17 +21,18 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='morinus',
+    name='Morinus',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    console=True,
+    console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['Res/MorinusSE.ico'],
 )
 coll = COLLECT(
     exe,
@@ -44,5 +41,11 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='morinus',
+    name='Morinus',
+)
+app = BUNDLE(
+    coll,
+    name='Morinus.app',
+    icon='Res/MorinusSE.ico',
+    bundle_identifier='org.morinus.se',
 )

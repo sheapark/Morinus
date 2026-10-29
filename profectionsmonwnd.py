@@ -215,12 +215,12 @@ class ProfectionsMonWnd(commonwnd.CommonWnd):
 					lon -= self.chart.ayanamsha
 					lon = util.normalize(lon)
 				d,m,s = util.decToDeg(lon)
-				sign = d/chart.Chart.SIGN_DEG
+				sign = int(d//chart.Chart.SIGN_DEG)
 				pos = d%chart.Chart.SIGN_DEG
 				# wsp,hsp = draw.textsize(' ', self.fntText)
-				w, h = get_size(self.fntText, ' ')
+				wsp, hsp = get_size(self.fntText, ' ')
 				# wsg,hsg = draw.textsize(self.signs[sign], self.fntMorinus)
-				w, h = get_size(self.fntMorinus, self.signs[sign])
+				wsg, hsg = get_size(self.fntMorinus, self.signs[sign])
 				txt = (str(pos)).rjust(2)+self.deg_symbol+(str(m)).zfill(2)+"'"+(str(s)).zfill(2)+'"'
 				# w,h = draw.textsize(txt, self.fntText)
 				w, h = get_size(self.fntText, txt)

@@ -13,3 +13,16 @@ Hors/
 *.hor
 # Internal dev notes (local only, not for publication)
 docs/DESARROLLO.md
+venv/
+venv-dist/
+build/
+dist/
+dmg/
+*.dmg
+*.zip
+Hors/
+_backup_py3fix/
+*_backup.py
+__pycache__/
+SWEP/src/build/
+.DS_Store

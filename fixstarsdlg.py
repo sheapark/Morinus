@@ -191,7 +191,7 @@ class FixStarListCtrl(wx.ListCtrl, limchecklistctrlmixin.LimCheckListCtrlMixin):
 
     def OnDeselectAll(self):
         self.initchecking = True
-        items = self.fixstardata.iteritems()
+        items = self.fixstardata.items()
         for k, v in items:
             if self.IsChecked(k-1):
                 self.CheckItem(k-1, False)
@@ -383,7 +383,7 @@ class FixStarsDlg(wx.Dialog):
         changed = False
 
         self.selnames = []
-        items = self.li.fixstardata.iteritems()
+        items = self.li.fixstardata.items()
         for k, v in items:
             if self.li.IsChecked(k-1):
                 self.selnames.append(v[1])

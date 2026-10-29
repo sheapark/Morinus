@@ -66,7 +66,7 @@ class TransitMonthWnd(commonwnd.CommonWnd):
 		self.fntAspects = ImageFont.truetype(common.common.symbols, 3*self.FONT_SIZE/4)
 		self.fntSigns = ImageFont.truetype(common.common.symbols, 3*self.FONT_SIZE/4)
 		self.fntText = ImageFont.truetype(common.common.abc, self.FONT_SIZE)
-		self.fntRText = ImageFont.truetype(common.common.abc, self.FONT_SIZE*3/4)
+		self.fntRText = ImageFont.truetype(common.common.abc, int(max(5, self.FONT_SIZE*3/4)))
 		self.clrs = (self.options.clrdomicil, self.options.clrexal, self.options.clrperegrin, self.options.clrcasus, self.options.clrexil)
 		self.signs = common.common.Signs1
 		if not self.options.signs:

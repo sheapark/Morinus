@@ -999,7 +999,7 @@ class GraphChart:
                         pen.SetDashes([10, 10])
 
                     self.bdc.SetPen(pen)
-                    self.bdc.DrawLine(x1, y1, x2, y2)
+                    self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
         for i in range(self.chart.planets.PLANETS_NUM-2):
@@ -1026,7 +1026,7 @@ class GraphChart:
                             pen.SetDashes([10, 10])
 
                         self.bdc.SetPen(pen)
-                        self.bdc.DrawLine(x1, y1, x2, y2)
+                        self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def drawLoFAspectLines(self):
@@ -1056,7 +1056,7 @@ class GraphChart:
                     pen.SetDashes([10, 10])
 
                 self.bdc.SetPen(pen)
-                self.bdc.DrawLine(x1, y1, x2, y2)
+                self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def drawPlanetaryDayAndHour(self):
@@ -1240,7 +1240,7 @@ class GraphChart:
         y1 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-lon))*r1)
         x2 = int(cx+math.cos(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-lon-pshift[planet]))*r2)
         y2 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-lon-pshift[planet]))*r2)
-        self.bdc.DrawLine(x1, y1, x2, y2)
+        self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def drawFixstars(self, showfss):
@@ -1299,7 +1299,7 @@ class GraphChart:
             y1 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-self.chart.fixstars.data[showfss[i]][fixstars.FixStars.LON]))*self.r30)
             x2 = int(cx+math.cos(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-self.chart.fixstars.data[showfss[i]][fixstars.FixStars.LON]-self.fsshift[i]))*self.rOuterLine)
             y2 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-self.chart.fixstars.data[showfss[i]][fixstars.FixStars.LON]-self.fsshift[i]))*self.rOuterLine)
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def drawAntisLines(self, plnts, lof, ascmc, pshift, r1, r2):
@@ -1335,7 +1335,7 @@ class GraphChart:
             y1 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-ayanoffs-lon))*r1)
             x2 = int(cx+math.cos(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-ayanoffs-lon-pshift[i]))*r2)
             y2 = int(cy+math.sin(math.pi+math.radians(self.chart.houses.ascmc[houses.Houses.ASC]-ayanoffs-lon-pshift[i]))*r2)
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def drawAntis(self, chrt, plnts, lof, ascmc, pshift, r):

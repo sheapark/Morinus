@@ -87,7 +87,7 @@ class PositionsWnd(wx.ScrolledWindow):
         self.fntMorinus = ImageFont.truetype(common.common.symbols, self.FONT_SIZE)
         self.fntSymbol = ImageFont.truetype(common.common.symbols, 3*self.FONT_SIZE/2)
         self.fntText = ImageFont.truetype(common.common.abc, self.FONT_SIZE)
-        self.fntRText = ImageFont.truetype(common.common.abc, self.FONT_SIZE*3/4)
+        self.fntRText = ImageFont.truetype(common.common.abc, int(max(5, self.FONT_SIZE*3/4)))
         self.clrs = (self.options.clrdomicil, self.options.clrexal, self.options.clrperegrin, self.options.clrcasus, self.options.clrexil)  
         self.signs = common.common.Signs1
         if not self.options.signs:
@@ -506,7 +506,7 @@ class PositionsWnd(wx.ScrolledWindow):
                 if self.options.ayanamsha != 0:
                     d,m,s = util.decToDeg(ayanlon)
 
-                sign = d/chart.Chart.SIGN_DEG
+                sign = int(d//chart.Chart.SIGN_DEG)
                 pos = d%chart.Chart.SIGN_DEG
                 # wsp,hsp = draw.textsize(' ', self.fntText)
                 wsp, hsp = get_size(self.fntText, ' ')

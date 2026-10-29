@@ -43,7 +43,7 @@ class RowsListCtrl(wx.ListCtrl):
 
         items = self.rowsdata.items()
         for key, data in items:
-            index = self.InsertStringItem(sys.maxint, data[0])
+            index = self.InsertStringItem(self.GetItemCount(), data[0])
             self.SetStringItem(index, RowsListCtrl.TYPE, data[0])
             self.SetStringItem(index, RowsListCtrl.VALUE, data[1])
             self.SetStringItem(index, RowsListCtrl.RULERSHIP, data[2])

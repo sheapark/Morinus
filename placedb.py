@@ -1,5 +1,7 @@
 import os
 import pickle
+import wx
+import mtexts
 
 
 class PlaceDB:
@@ -66,7 +68,7 @@ class PlaceDB:
             f.close()
 
         except IOError:
-            dlg = wx.MessageDialog(self, mtexts.txts['DBFileError'], mtexts.txts['Error'], wx.OK|wx.ICON_EXCLAMATION)
+            dlg = wx.MessageDialog(None, mtexts.txts['DBFileError'], mtexts.txts['Error'], wx.OK|wx.ICON_EXCLAMATION)
             dlg.ShowModal()
         
 

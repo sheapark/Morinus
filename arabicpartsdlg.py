@@ -47,7 +47,7 @@ class PartsListCtrl(wx.ListCtrl):
         for key, data in items:
             # Javier changed deprecated InsertStringItem to InsertItem instead
             #index = self.InsertStringItem(sys.maxint, data[0])
-            index = self.InsertItem(sys.maxint, data[0])
+            index = self.InsertItem(self.GetItemCount(), data[0])
             # Javier changed deprecated SetStringItem to SetItem instead
             #self.SetStringItem(index, PartsListCtrl.NAME, data[0])
             #self.SetStringItem(index, PartsListCtrl.FORMULA, data[1])
@@ -80,7 +80,7 @@ class PartsListCtrl(wx.ListCtrl):
 
 
     def OnItemSelected(self, event):
-        self.currentItem = event.m_itemIndex
+        self.currentItem = event.GetIndex()
         event.Skip()
 
 

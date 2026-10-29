@@ -47,7 +47,7 @@ class LimCheckListCtrlMixin:
     # NOTE: if you use InsertItem, InsertImageItem or InsertImageStringItem,
     #       you must set the image yourself.
     def __InsertStringItem_(self, index, label):
-        index = self.InsertImageStringItem(index, label, 0)
+        index = self.InsertItem(index, label, 0)
         return index
 
     def __OnLeftDown_(self, evt):

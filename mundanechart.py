@@ -401,7 +401,7 @@ class MundaneChart:
             y1 = int(cy+math.sin(offs)*r1)
             x2 = int(cx+math.cos(offs)*r2)
             y2 = int(cy+math.sin(offs)*r2)
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
             offs -= MundaneChart.DEG30
 
         #30-degs
@@ -439,7 +439,7 @@ class MundaneChart:
             y1 = int(cy+math.sin(offs)*r1)
             x2 = int(cx+math.cos(offs)*r2)
             y2 = int(cy+math.sin(offs)*r2)
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
             offs -= 3*MundaneChart.DEG30
 
             if i == 2 or i == 3:
@@ -585,7 +585,7 @@ class MundaneChart:
             x2 = int(cx+math.cos(i)*r2)
             y2 = int(cy+math.sin(i)*r2)
 
-            self.bdc.DrawLine(x1, y1, x2, y2)
+            self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
             i -= deg
 
 
@@ -630,7 +630,7 @@ class MundaneChart:
         y1 = int(cy+math.sin(math.pi+math.radians(-xmp))*r1)
         x2 = int(cx+math.cos(math.pi+math.radians(-xmp-pshift[planet]))*r2)
         y2 = int(cy+math.sin(math.pi+math.radians(-xmp-pshift[planet]))*r2)
-        self.bdc.DrawLine(x1, y1, x2, y2)
+        self.bdc.DrawLine(int(x1), int(y1), int(x2), int(y2))
 
 
     def arrange(self, plnts, frtn, rPlanet):
